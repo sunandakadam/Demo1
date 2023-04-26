@@ -6,15 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  displayname:any;
+  user:any;
   constructor() { }
 
   ngOnInit(): void {
-    this.displayname=localStorage.getItem('name')
-    console.log('this.displayname',this.displayname);
-    if(this.displayname==null){
-      this.displayname='User'
-    }
+    const userFromStorage=localStorage.getItem('user');
+    this.user = userFromStorage ? JSON.parse(userFromStorage) : {};
   }
 
 }
